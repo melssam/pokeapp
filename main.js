@@ -36,18 +36,18 @@ fetch(POKE_URL + name)
     })
 }
 
-fetchPokemon("ditto")
-fetchPokemon("pikachu")
-fetchPokemon("jigglypuff")
-fetchPokemon("charizard")
-fetchPokemon("eevee")
-fetchPokemon("mew")
-fetchPokemon("gyarados")
-fetchPokemon("lopunny")
-fetchPokemon("pichu")
-fetchPokemon("psyduck")
-fetchPokemon("slowpoke")
-fetchPokemon("magikarp")
-fetchPokemon("dragonite")
+//get 100 pokemon and display them 
+
+const fetch100Pokemon = function (){
+    let pokemonURL = POKE_URL + "?limit=100"
+    fetch(pokemonURL)
+    .then(response => response.json())
+    .then(data => {
+        console.log(data.results)
+        data.results.forEach(pokemon => fetchPokemon(pokemon.name))
+    })
+}
+    fetch100Pokemon()
+
 
 
